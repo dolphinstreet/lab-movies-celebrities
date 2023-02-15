@@ -7,12 +7,13 @@ router.get('/create', (req, res) => {
 })
 
 router.post('/create', async (req, res, next) => {
-    const celebrity = {
-        name: req.body.name,
-        occupation: req.body.occupation,
-        catchPhrase: req.body.catchPhrase
-    }
+
     try {
+        const celebrity = {
+            name: req.body.name,
+            occupation: req.body.occupation,
+            catchPhrase: req.body.catchPhrase
+        }
         const createdCelebrity = await Celebrity.create(celebrity)
         res.redirect('/celebrities')
 
